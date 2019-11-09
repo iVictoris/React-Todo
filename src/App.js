@@ -31,8 +31,8 @@ class App extends React.Component {
   updateTodo = (id, action) => {
     switch (action) {
       case "complete":
-        const todo = this.state.todos.find(todo => todo.id === id); // mutating directly, should probably clone
-        todo.completed = !todo.completed;
+        const todo = this.state.todos.find(todo => todo.id === id); 
+        todo.completed = !todo.completed; // mutating directly, should probably clone
 
 
         const otherTodos = this.state.todos.filter(todo => todo.id !== id)
