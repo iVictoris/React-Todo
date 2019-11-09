@@ -32,10 +32,6 @@ class App extends React.Component {
 
   clearTodo = () => {};
 
-  handleSubmit = e => {};
-
-  handleChange = e => {};
-
   render() {
     return (
       <div>
