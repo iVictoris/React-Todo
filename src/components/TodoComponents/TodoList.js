@@ -6,7 +6,7 @@ import Todo from './Todo'
 const TodoList = ({todos = []}) => {
   const todoItems = todos.map((todo) => {
     return (
-      <Todo {...todo} />
+      <Todo {...todo} key={todo.id}/>
     )
   })
   return (
