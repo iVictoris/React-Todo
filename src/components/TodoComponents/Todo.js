@@ -1,4 +1,5 @@
 import React from 'react'
+import './Todo.css';
 
 const Todo = ({completed, id, text, updateTodo}) => {
   return (
