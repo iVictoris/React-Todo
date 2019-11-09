@@ -28,7 +28,22 @@ class App extends React.Component {
     this.setState({ todos });
   };
 
-  updateTodo = (id, action) => {};
+  updateTodo = (id, action) => {
+    switch (action) {
+      case "complete":
+        const todo = this.state.todos.find(todo => todo.id === id); // mutating directly, should probably clone
+        todo.completed = !todo.completed;
+
+
+        const otherTodos = this.state.todos.filter(todo => todo.id !== id)
+        const todos = [...otherTodos, todo];
+        this.setState({ todos });
+        break;
+
+      default:
+        return;
+    }
+  };
 
   clearTodo = () => {};
 
@@ -41,7 +56,9 @@ class App extends React.Component {
           createTodo={this.createTodo}
         />
 
-        {this.state.todos && <TodoList todos={this.state.todos} />}
+        {this.state.todos && (
+          <TodoList todos={this.state.todos} updateTodo={this.updateTodo} />
+        )}
       </div>
     );
   }
