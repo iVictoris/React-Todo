@@ -9,6 +9,7 @@ const todoForm = () => (
       <Field type="text" name="todo" placeholder="Enter todo item" />
     </label>
     <button type='submit'>+</button>
+    <button type='button'>Clear Completed Todos</button>
   </Form>
 );
 
