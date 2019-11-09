@@ -3,13 +3,13 @@ import React from "react";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 
-const todoForm = () => (
+const todoForm = ({clearTodo}) => (
   <Form>
     <label>Enter a Todo item: &nbsp;
       <Field type="text" name="todo" placeholder="Enter todo item" />
     </label>
     <button type='submit'>+</button>
-    <button type='button'>Clear Completed Todos</button>
+    <button type='button' onClick={() => clearTodo()}>Clear Completed Todos</button>
   </Form>
 );
 

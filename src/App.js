@@ -45,7 +45,10 @@ class App extends React.Component {
     }
   };
 
-  clearTodo = () => {};
+  clearTodo = () => {
+    const notDoneTodos = this.state.todos.filter(todo => !todo.completed)
+    this.setState({todos: notDoneTodos}, () => console.log(this.state.todos));
+  };
 
   render() {
     return (
@@ -54,6 +57,7 @@ class App extends React.Component {
           context={this.state.todos}
           addTodo={this.addTodo}
           createTodo={this.createTodo}
+          clearTodo={this.clearTodo}
         />
 
         {this.state.todos && (
