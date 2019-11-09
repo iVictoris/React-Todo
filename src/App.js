@@ -1,4 +1,6 @@
 import React from "react";
+import {Form, Field, withFormik} from 'formik';
+import * as Yup from 'yup';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -23,9 +25,16 @@ class App extends React.Component {
   handleChange = e => {};
 
   render() {
+
+    const todoForm = (
+      <Form>
+        <Field type='text' name='todo' placeholder='Enter todo item' />
+      </Form>
+    )
+
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        {todoForm}
       </div>
     );
   }
