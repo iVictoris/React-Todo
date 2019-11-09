@@ -1,6 +1,7 @@
 import React from "react";
-import {Form, Field, withFormik} from 'formik';
-import * as Yup from 'yup';
+import TodoForm from "./components/TodoComponents/TodoForm";
+
+import { generateID } from "./utils/generateID";
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -10,31 +11,40 @@ class App extends React.Component {
     todos: []
   };
 
-  createTodo = (props) => {};
+  createTodo = text => {
+    const id = generateID(this.state.todos);
+    const todo = {
+      id,
+      text,
+      completed: false
+    };
 
-  addTodo = (todo) => {};
+    return todo;
+  };
 
-  updateTodo = (id, action) => {}
+  addTodo = todo => {
+    const todos = [...this.state.todos, todo];
+    this.setState({ todos });
+  };
 
-  clearTodo = () => {}
+  updateTodo = (id, action) => {};
 
-  displayTodo = () => {};
+  clearTodo = () => {};
 
   handleSubmit = e => {};
 
   handleChange = e => {};
 
   render() {
-
-    const todoForm = (
-      <Form>
-        <Field type='text' name='todo' placeholder='Enter todo item' />
-      </Form>
-    )
-
     return (
       <div>
-        {todoForm}
+        <TodoForm
+          context={this.state.todos}
+          addTodo={this.addTodo}
+          createTodo={this.createTodo}
+        />
+
+        {this.state.todos && null}
       </div>
     );
   }
